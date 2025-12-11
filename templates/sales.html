@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Sales - AI-CRM{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Sales</h1>
+        <p class="muted">Track your deals and closed revenue.</p>
+        <a href="{{ url_for('sales.add_sale') }}" class="btn btn-primary">
+            + Add New Sale
+        </a>
+    </div>
+
+    <div class="dashboard-card wide">
+        <h3>Sales List</h3>
+        {% if sales %}
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in sales %}
+                    <tr>
+                        <td>{{ s.customer.name if s.customer else "Unknown" }}</td>
+                        <td>{{ "%.2f"|format(s.amount) }}</td>
+                        <td>{{ s.currency }}</td>
+                        <td>{{ s.status|capitalize }}</td>
+                        <td>{{ s.sale_date.strftime("%Y-%m-%d") if s.sale_date else "-" }}</td>
+                        <td>{{ s.notes or "-" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="muted">No sales yet. Start by adding a new sale.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

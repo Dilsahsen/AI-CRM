@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AI-CRM{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    <!-- 🔝 TOP NAVBAR -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="{{ url_for('dashboard.index') }}" class="nav-logo">AI-CRM</a>
+        </div>
+
+        <div class="nav-right">
+            <!-- 🌙 / ☀️ DARK MODE BUTTON -->
+            <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme">
+                🌙
+            </button>
+
+            {% if current_user.is_authenticated %}
+                <span class="nav-user">Welcome, {{ current_user.name }}</span>
+                <a href="{{ url_for('dashboard.index') }}" class="nav-link">Dashboard</a>
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-sm btn-outline">Logout</a>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}" class="nav-link">Login</a>
+                <a href="{{ url_for('auth.register') }}" class="btn btn-sm">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+
+    <div class="flash-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+ 
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    
+    <footer class="footer">
+        <p>© 2025 <strong>AI-CRM</strong> — Built with ❤️ for CS50 Final Project</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Login - AI-CRM{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h1 class="auth-title">Welcome back</h1>
+        <p class="auth-subtitle">Sign in to continue to AI-CRM</p>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-input", placeholder="you@example.com") }}
+                {% for error in form.email.errors %}
+                    <p class="form-error">{{ error }}</p>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    {{ form.password.label(class="form-label") }}
+
+                    <a href="{{ url_for('auth.forgot_password') }}" class="link-small">
+                        Forgot password?
+                    </a>
+                </div>
+
+                {{ form.password(class="form-input", placeholder="Your password") }}
+                {% for error in form.password.errors %}
+                    <p class="form-error">{{ error }}</p>
+                {% endfor %}
+            </div>
+
+            <div class="form-row-between">
+                <label class="checkbox-label">
+                    {{ form.remember_me() }}
+                    <span>Remember me</span>
+                </label>
+            </div>
+
+            {{ form.submit(class="btn btn-primary w-100") }}
+        </form>
+
+        <p class="auth-footer-text">
+            Don’t have an account yet?
+            <a href="{{ url_for('auth.register') }}">Create one</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

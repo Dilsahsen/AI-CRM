@@ -1,0 +1,13 @@
+Hello,
+
+We detected multiple failed login attempts for your AI-CRM account ({{ email }}).
+For your security, we temporarily locked login attempts for {{ lock_minutes }} minutes.
+
+If this wasn't you, we recommend:
+- Change your password immediately after unlocking.
+- Contact support if you suspect unauthorized access: support@yourdomain.com
+
+Time: {{ time }}
+
+Regards,
+AI-CRM Security Team

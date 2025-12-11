@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Sale - AI-CRM{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Edit Sale</h1>
+        <p>Update sale for {{ sale.customer.name if sale.customer else "Unknown customer" }}</p>
+        <a href="{{ url_for('sales.list_sales') }}" class="btn btn-secondary">← Back to Sales</a>
+    </div>
+
+    <div class="dashboard-card">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.customer_id.label(class="form-label") }}
+                {{ form.customer_id(class="form-input") }}
+                {% for error in form.customer_id.errors %}
+                    <div class="form-errors">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.amount.label(class="form-label") }}
+                {{ form.amount(class="form-input") }}
+                {% for error in form.amount.errors %}
+                    <div class="form-errors">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.currency.label(class="form-label") }}
+                {{ form.currency(class="form-input") }}
+                {% for error in form.currency.errors %}
+                    <div class="form-errors">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.status.label(class="form-label") }}
+                {{ form.status(class="form-input") }}
+                {% for error in form.status.errors %}
+                    <div class="form-errors">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.sale_date.label(class="form-label") }}
+                {{ form.sale_date(class="form-input") }}
+                {% for error in form.sale_date.errors %}
+                    <div class="form-errors">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.notes.label(class="form-label") }}
+                {{ form.notes(class="form-input") }}
+                {% for error in form.notes.errors %}
+                    <div class="form-errors">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a href="{{ url_for('sales.list_sales') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
