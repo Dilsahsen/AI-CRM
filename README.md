@@ -5,6 +5,7 @@ It includes authentication, security protections, customer management, sales tra
 This project was built as the final project for Harvard’s CS50x (2025).
 
 🚀 Features
+
 🔐 1. Authentication System
 
 Register / Login / Logout
@@ -43,6 +44,7 @@ Interactive line chart (Chart.js) showing last 7 days of sales
 🧱 5. Clean Architecture (Blueprints + Forms + Models)
 
 Modular Flask structure:
+
 /routes
 /models
 /forms
@@ -51,6 +53,7 @@ Modular Flask structure:
 /static
 
 🗂 Project Structure
+
 AI-CRM/
 │
 ├── app.py
@@ -89,6 +92,7 @@ AI-CRM/
 
 
 🧪 How to Run Locally
+
 1️⃣ Create Virtual Environment
 python -m venv venv
 source venv/bin/activate   # macOS/Linux
@@ -107,10 +111,12 @@ http://127.0.0.1:5000
 
 
 📌 Why This Project? (CS50 Reflection Requirement)
+
 I built AI-CRM to learn how real-world CRM systems work and to deepen my knowledge of backend development, user authentication, relational databases, blueprints, forms, and security. It allowed me to turn a real business idea into a full-stack Flask application.
-(You will also say this verbally in your CS50 video.)
+
 
 🌟 Technologies Used
+
 Python
 Flask
 SQLite
@@ -123,5 +129,5 @@ Werkzeug security
 
 🙏 Acknowledgements
 Special thanks to the CS50 staff and to everyone who supported this project 💙
-Special thanks to the CS50 staff and to everyone who supported this project 💙
+
 
