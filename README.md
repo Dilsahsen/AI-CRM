@@ -107,11 +107,11 @@ python app.py
 4️⃣ Open in Browser
 http://127.0.0.1:5000
 
-🎥 Demo Video (CS50 Requirement)
+🎥 Demo Video 
 
 https://youtu.be/OBR4Vd_1Dxw?si=alVLENOewbJI3gtR
 
-📌 Why This Project? (CS50 Reflection Requirement)
+📌 Why This Project? 
 
 I built AI-CRM to learn how real-world CRM systems work and to deepen my knowledge of backend development, user authentication, relational databases, blueprints, forms, and security. It allowed me to turn a real business idea into a full-stack Flask application.
 
